@@ -1,6 +1,6 @@
 # Local Environment for Working with Auth0 AD/LDAP Connector
 
-Sometimes we need to quickly check some behaviour with the AD/LDAP Connector. However setting the environment up with an LDAP server, data & the connector itself can be cumbersome. This repository should offer a rapid setup of the entire environment to quickly setup the connector and the corresponding LDAP environment locally. LDAP Server, LDAP Admin UI and the Connector itself all configured with sensible defaults and ready to try.
+Sometimes we need to quickly check some behaviour with the AD/LDAP Connector. However setting the environment up with an LDAP server, data & the connector itself can be cumbersome. This repository should offer a rapid setup of the entire environment to quickly setup the connector and the corresponding LDAP environment locally. **LDAP Server**, **LDAP Admin UI** and the **Connector** itself all configured with sensible defaults and ready to try.
 
 ## Prerequisites
 
