@@ -1,0 +1,40 @@
+# Build Local Dev Environment
+services:
+  ldap-server:
+    image: osixia/openldap
+    container_name: ldap-server
+    env_file:
+      - ldap-server.env
+    tty: true
+    stdin_open: true
+    ports:
+      - "389:389"
+    volumes:
+      - ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
+    command: --copy-service
+    hostname: ldap-server
+  ldap-admin:
+   image: osixia/phpldapadmin
+   container_name: ldap-admin
+   env_file:
+    - ldap-admin.env
+   ports:
+     - "8080:80"
+   depends_on:
+     - ldap-server
+   hostname: ldap-admin
+  ldap-connector:
+    image: ldap-connector
+    container_name: ldap-connector
+    build:
+      dockerfile: ./Dockerfile
+    env_file: 
+      - ldap-connector.env
+    expose:
+      - "8357"
+    ports:
+      - "8357:8357"
+    depends_on:
+      - ldap-server
+    hostname: ldap-connector
+    
